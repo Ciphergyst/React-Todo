@@ -1,15 +1,15 @@
 import React from 'react';
-import Todo from './Todo.js';
+import Todo from './components/TodoComponents/Todo.js';
 
 
-const myArray = ['wash truck', 'walk the dog', 'blow leaves off porch'];
+// const myArray = ['wash truck', 'walk the dog', 'blow leaves off porch'];
 
-function App() {
-  return (
-    <div className='App'>
-      <Todo todos={myArray} />
-    </div>
-  );
-}
+// function App() {
+//   return (
+//     <div className='App'>
+//       <Todo todos={myArray} />
+//     </div>
+//   );
+// }
 
-export default App;
+// export default App;

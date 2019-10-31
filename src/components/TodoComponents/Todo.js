@@ -1,53 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Todo extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            todo: "",
-            todos: []
-        };
+const Todo = props => {
+    let verboseClassName = "todo";
+    if (props.todo.completed) {
+        verboseClassName = verboseClassName + "completed";
     }
 
-    componentDidMount() {
-        this.setState({todos: [...this.props.todos] });
-    }
-
-    onInputChange = e => {
-        e.preventDefault();
-        this.setState({
-            todo: e.target.value
-        });
+    const handleClick = () => {
+        props.toggleCompleted(props.todo.id);
     };
 
-    onFormSubmit = e => {
-        e.preventDefault();
-        if (this.state.todo) {
-            this.setState({
-                todos: [...this.state.todos, this.state.todo],
-                todo: ""
-            });
-        }
-    };
-
-    render() {
-        console.log(this.state);
-        return(
-            <>
-             <form onSubmit={this.onFormSubmit}>
-                 <input
-                  onChange={this.onInputChange}
-                  value={this.state.todo}
-                  placeholder="Add Item"
-                />
-                 {this.state.todos.map((toso, index) => {
-                     return <p key={index}>{todo}</p>;
-                 })}
-             </form>
-             <button type="submit">Submit</button>
-             </>
-        );
-    }
-}
+    return (
+        <div onClick={handleClick} className={verboseClassName}>
+            <p>{props.todo.name}</p>
+        </div>
+    );
+};
 
 export default Todo;
